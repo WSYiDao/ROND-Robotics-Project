@@ -22,6 +22,11 @@ All parameters define on the top of the `ArmPlugin.cpp`
 
 and add `#define NUM_ACTIONS	DOF*2` as numActions
 
+DQN agent's performance in the project:
+- 1. In task 1, the agent is very fast get a good auc but  result is unstable at 25 runs
+- 2. In task 2, the agent get low auc at first, but improve to high auc when 35 runs. 
+- 
+
 ``` c
 // Create(uint32_t width, uint32_t height, uint32_t channels, uint32_t numActions,
 // 				  const char* optimizer, float learning_rate, uint32_t replay_mem, uint32_t batch_size,
@@ -180,6 +185,7 @@ if (collisionCheck)
 
 
 ### 7.Tune the hyperparameters
+In task 1 and 2 I tune both of them and use the same hypeparameters.
 - `64*64` as the input size is enough to the DQN.
 - `OPTIMIZER` I try `RMSprop` and `Adom` and `RWSprop` is better
 - `BATCH_SIZE` I think bigger is better , but more than 32 can run well in the class workspasce enviroment.
@@ -207,7 +213,7 @@ if (collisionCheck)
 ```
 
 
-`VELOCITY_CONTROL` I try true and false, and I find that position based control of the arm joints is better than velocity.
+`VELOCITY_CONTROL` I try true and false, and I find that in task 2 position based control of the arm joints is better than velocity.
 
 ``` c
 #define JOINT_MIN	-0.75f
@@ -236,5 +242,22 @@ screenshot for task 1:
 
 screenshot for task 2:
 ![2](pic/deeprl2.png)
+
+### 9. Future Work
+In the project, there are DQN parameters define:
+
+``` c
+#define ALLOW_RANDOM true
+#define DEBUG_DQN true
+#define GAMMA 0.9f
+#define EPS_START 0.9f
+#define EPS_END 0.05f
+#define EPS_DECAY 200
+```
+
+I think eps-decay and eps-start-end is not the the best value currently and it could improve the current results.
+
+And In the project,  the object of interest was placed at the same location, if the object  will instantiate at different locations along the x-axis the model will be robust。
+
 
 
