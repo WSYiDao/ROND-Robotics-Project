@@ -1,7 +1,7 @@
 # Deep RL Arm Manipulation 
 Project base on https://github.com/udacity/RoboND-DeepRL-Project
 
-##solution and writeup
+## solution and writeup
 ### 1.Subscribe to camera and collision topics
 
 ROS topics subscribe code: `gazebo::transport::SubscriberPtr sub = node->Subscribe("topic_name", callback_function, class_instance)`
