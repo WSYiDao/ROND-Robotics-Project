@@ -1,0 +1,10 @@
+ssh ubuntu@ec2-34-231-243-244.compute-1.amazonaws.com
+
+
+git clone https://github.com/udacity/RoboND-DeepLearning-Project.git
+wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Deep+Learning+Data/Lab/train.zip
+wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Deep+Learning+Data/Lab/validation.zip
+wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Deep+Learning+Data/Project/sample_evaluation_data.zip
+
+pupyter notebook --ip='*' --port=8889 --no-browser
+
